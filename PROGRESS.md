@@ -9,8 +9,8 @@ Ce fichier décrit les étapes du projet POKEMON et leurs sous-étapes. Chaque f
 ---
 
 ## Étape 1 : Création des équipements de base
-- [ ] **Développer simple_router**
-  - [ ] Implémenter un plan de données en P4 pour le routage.
+- [x] **Développer simple_router**
+  - [x] Implémenter un plan de données en P4 pour le routage.
   - [ ] Implémenter un plan de contrôle en Python pour calculer et installer les tables.
   - [ ] Tester le routage sur des topologies simples.
 - [ ] **Ajouter une fonctionnalité d'encapsulation**
