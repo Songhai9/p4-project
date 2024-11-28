@@ -11,5 +11,3 @@ The project will have :
 
 
 Je donne ici un exemple de ce à quoi les fichiers sont censés ressembler. Mais ils doivent être adapté au sujet de mon projet
-
-@c:\Users\Doosi\TPS\Réseau Programmable\p4-learning\exercises\06-Heavy_Hitter_Detector\p4app.json @c:\Users\Doosi\TPS\Réseau Programmable\p4-learning\exercises\06-Heavy_Hitter_Detector\network.py @c:\Users\Doosi\TPS\Réseau Programmable\p4-learning\exercises\06-Heavy_Hitter_Detector\receive.py @c:\Users\Doosi\TPS\Réseau Programmable\p4-learning\exercises\06-Heavy_Hitter_Detector\send.py 
