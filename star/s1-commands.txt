@@ -1,0 +1,9 @@
+table_set_default ipv4_lpm drop
+# h1: IP=10.0.2.1. Pour l'atteindre, next hop = s2.
+# Trouvez la MAC de s2-eth1 (interface de s2 vers s1) et le port s1->s2.
+# Supposons s2-eth1 = 22:30:0e:f9:b2:88, s1->s2 sur port 1
+table_add ipv4_lpm ipv4_forward 10.0.2.1/32 => 22:30:0e:f9:b2:88 1
+
+# h2: IP=10.0.3.2. Pour l'atteindre, next hop = s3.
+# Trouvez la MAC de s3-eth1 (interface de s3 vers s1), supposons f6:0e:5f:a9:cd:d5, s1->s3 sur port 2
+table_add ipv4_lpm ipv4_forward 10.0.3.2/32 => f6:0e:5f:a9:cd:d5 2

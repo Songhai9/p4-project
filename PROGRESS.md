@@ -17,16 +17,16 @@ Ce document décrit toutes les étapes et sous-étapes pour compléter le projet
 
 **Objectif :** Créer un routeur de base capable de routage IP intra-domaine.
 
-- [ ] Créer `simple_router.p4` qui :  
-  - [ ] Analyse les en-têtes Ethernet et IPv4  
-  - [ ] Effectue des recherches LPM pour les destinations  
-  - [ ] Transfère les paquets vers les ports de sortie corrects  
-  - [ ] Maintient les compteurs/registres nécessaires
+- [✅] Créer `simple_router.p4` qui :  
+  - [✅] Analyse les en-têtes Ethernet et IPv4  
+  - [✅] Effectue des recherches LPM pour les destinations  
+  - [✅] Transfère les paquets vers les ports de sortie corrects  
+  - [✅] Maintient les compteurs/registres nécessaires
 - [ ] Plan de contrôle Python qui :  
   - [ ] Calcule les chemins les plus courts en fonction de la topologie connue  
   - [ ] Installe les entrées de transfert dans les tables P4  
   - [ ] Gère la configuration des interfaces hôte/switch si nécessaire
-- [ ] Tester la connectivité de base (tests de ping) entre les hôtes finaux
+- [✅] Tester la connectivité de base (tests de ping) entre les hôtes finaux
 
 ### Étape 2 : Ajouter l'Encapsulation pour le Routage par Points de Passage
 

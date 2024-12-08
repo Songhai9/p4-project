@@ -1,0 +1,7 @@
+table_set_default ipv4_lpm drop
+# h2 est local, IP=10.0.3.2, MAC=00:00:0a:00:03:02, port s3->h2=2
+table_add ipv4_lpm ipv4_forward 10.0.3.2/32 => 00:00:0a:00:03:02 2
+
+# Pour joindre h1 (10.0.2.1), passer par s1.
+# MAC de s1-eth2 (côté s1 vers s3), supposons 00:01:0a:00:01:03, port s3->s1=1
+table_add ipv4_lpm ipv4_forward 10.0.2.1/32 => 00:01:0a:00:01:03 1
