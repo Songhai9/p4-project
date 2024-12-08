@@ -30,18 +30,18 @@ class SimpleRouterController(object):
 
     def compute_shortest_paths(self):
         """Calcule les chemins les plus courts entre tous les hôtes."""
+        G = nx.Graph()
+        for link in self.topo.edges():
+            G.add_edge(link[0], link[1])
+
         self.shortest_paths = {}
         hosts = self.topo.get_hosts()
         for src_host in hosts:
             for dst_host in hosts:
                 if src_host != dst_host:
-                    # Crée un graphe NetworkX à partir de la topologie
-                    G = nx.Graph()
-                    for link in self.topo.edges():  # Utilisation de edges() au lieu de links()
-                        G.add_edge(link[0], link[1])
-                    # Trouve le chemin le plus court
                     path = nx.shortest_path(G, src_host, dst_host)
                     self.shortest_paths[(src_host, dst_host)] = path
+
 
     def install_forwarding_rules(self):
         """Installe les règles de transfert basées sur les chemins les plus courts."""
