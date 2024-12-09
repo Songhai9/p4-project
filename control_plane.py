@@ -48,23 +48,34 @@ class SimpleRouterController(object):
         for (src_host, dst_host), path in self.shortest_paths.items():
             dst_ip = self.topo.get_host_ip(dst_host).split('/')[0]  # Retire le masque
             
-            # Pour chaque switch dans le chemin
+            # Pour chaque segment du chemin
             for i in range(len(path)-1):
-                if self.topo.isP4Switch(path[i]):
-                    controller = self.controllers[path[i]]
-                    next_hop = path[i+1]
-                    
-                    # Obtient le port de sortie et la MAC du prochain saut
-                    out_port = self.topo.node_to_node_port_num(path[i], next_hop)
-                    next_hop_mac = self.topo.node_to_node_mac(path[i], next_hop)
+                current_node = path[i]
+                next_hop = path[i+1]
 
-                    # Installe la règle de transfert
+                # On ne programme des règles que sur les nœuds P4 (switches)
+                if self.topo.isP4Switch(current_node):
+                    controller = self.controllers[current_node]
+
+                    # Obtenir le port de sortie
+                    out_port = self.topo.node_to_node_port_num(current_node, next_hop)
+
+                    # Déterminer la MAC du prochain saut
+                    if self.topo.isHost(next_hop):
+                        # Si le prochain nœud est un hôte
+                        next_hop_mac = self.topo.get_host_mac(next_hop)
+                    else:
+                        # Si le prochain nœud est un switch
+                        next_hop_mac = self.topo.node_to_node_mac(current_node, next_hop)
+
+                    # Installer la règle de transfert
                     controller.table_add(
                         "ipv4_lpm",
                         "ipv4_forward",
                         [f"{dst_ip}/32"],
-                        [str(next_hop_mac), str(out_port)]
+                        [next_hop_mac, str(out_port)]
                     )
+
 
     def route(self):
         """Configure le routage pour l'ensemble du réseau."""
