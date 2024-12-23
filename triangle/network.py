@@ -3,9 +3,9 @@ from p4utils.mininetlib.network_API import NetworkAPI
 net = NetworkAPI()
 net.setLogLevel('info')
 
-net.addP4Switch('s1', cli_input='s1-commands.txt')
-net.addP4Switch('s2', cli_input='s2-commands.txt')
-net.addP4Switch('s3', cli_input='s3-commands.txt')
+net.addP4Switch('s1')
+net.addP4Switch('s2')
+net.addP4Switch('s3')
 net.setP4SourceAll('../simple_router.p4')
 
 net.addHost('h1')

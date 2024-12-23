@@ -22,10 +22,9 @@ Ce document décrit toutes les étapes et sous-étapes pour compléter le projet
   - [✅] Effectue des recherches LPM pour les destinations  
   - [✅] Transfère les paquets vers les ports de sortie corrects  
   - [✅] Maintient les compteurs/registres nécessaires
-- [ ] Plan de contrôle Python qui :  
-  - [ ] Calcule les chemins les plus courts en fonction de la topologie connue  
-  - [ ] Installe les entrées de transfert dans les tables P4  
-  - [ ] Gère la configuration des interfaces hôte/switch si nécessaire
+- [✅] Plan de contrôle Python qui :  
+  - [✅] Calcule les chemins les plus courts en fonction de la topologie connue  
+  - [✅] Installe les entrées de transfert dans les tables P4  
 - [✅] Tester la connectivité de base (tests de ping) entre les hôtes finaux
 
 ### Étape 2 : Ajouter l'Encapsulation pour le Routage par Points de Passage
